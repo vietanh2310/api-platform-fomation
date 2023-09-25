@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiProperty;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ClubRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -18,6 +19,7 @@ class Club
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
+    #[ApiProperty(types: ['https://schema.org/name'])]
     private ?string $name = null;
 
     #[ORM\OneToMany(mappedBy: 'club', targetEntity: ClubMember::class, orphanRemoval: true)]
